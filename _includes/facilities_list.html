@@ -1,0 +1,27 @@
+{% assign facs = site.facilities | where: "category", include.category %}
+
+<ul class="facilities">
+{% for facility in facs %}
+	<li class="{% cycle "", "flip" %}">
+		<div class="bg-image" style="background-image: url('{{ facility.img }}')"></div>
+		<h3>{{ facility.name }}</h3>
+		<h4>{{ facility.type }}</h4>
+		{{ facility.content | markdownify }}
+
+		<div class="contact-list">
+		{% if facility.tel %}
+		<a href="tel:{{ facility.tel }}">
+			<i class="fas fa-phone"></i>
+			{{ facility.tel }}
+		</a>
+		{% endif %}
+		{% if facility.address %}
+		<a href="geo:{{ facility.geo }}">
+			<i class="fas fa-map-marker-alt"></i>
+			{{ facility.address }}
+		</a>
+		{% endif %}
+		</div>
+	</li>
+{% endfor %}
+</ul>
