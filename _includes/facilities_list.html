@@ -9,18 +9,36 @@
 		{{ facility.content | markdownify }}
 
 		<div class="contact-list">
+
+
+		{% if facility.category == 'see' %}
+		<a href="#tour">
+			<i class="fas fa-comments"></i>
+			Find a Guide
+		</a>
+		{% endif %}
+
 		{% if facility.tel %}
 		<a href="tel:{{ facility.tel }}">
 			<i class="fas fa-phone"></i>
 			{{ facility.tel }}
 		</a>
 		{% endif %}
+
 		{% if facility.address %}
 		<a href="geo:{{ facility.geo }}">
 			<i class="fas fa-map-marker-alt"></i>
 			{{ facility.address }}
 		</a>
 		{% endif %}
+
+		{% if facility.instagram %}
+		<a href="https://www.instagram.com/{{ facility.instagram }}">
+			<i class="fab fa-instagram"></i>
+			{{ facility.instagram }}
+		</a>
+		{% endif %}
+
 		</div>
 	</li>
 {% endfor %}

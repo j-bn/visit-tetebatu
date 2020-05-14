@@ -1,23 +1,18 @@
+color-default = #444
+
+container-width = 800px
+handheld-mw = 500px
+gutter = 1rem
+
+section-padding = 3rem
+section-padding-handheld = 1.5rem
+
 // Reset
 *
 	box-sizing border-box
 	margin 0
 	padding 0
-
-// Global styles
-:root, html
-	font-family sans-serif
-	font-size 12pt
 	
-	color #333
-	
-	// Smooth scrolling to anchors
-	scroll-behavior smooth
-	
-a
-	text-decoration underline
-	color orange
-
 // Mixins
 square()
 	// https://spin.atomicobject.com/2015/07/14/css-responsive-square/
@@ -28,22 +23,25 @@ square()
 		padding-bottom 100%
 
 heading-line(color, bg-color)
-	display block
-	
+	gap = 40px
+
+	// Grid layout
+	// https://www.trysmudford.com/blog/css-header-legend/
+	display grid
+	grid-template-columns: minmax(gap, 1fr) auto minmax(gap, 1fr)
+	align-items center
 	text-align center
+	grid-gap gap
+	width 100%
 	
 	color color
-	border-bottom solid 3px color
-	
-	height 0.7em
-	margin-bottom 0.7em
 
-	> span
-		display inline-block
-		
-		background-color bg-color
-		
-		padding 0 2rem	
+	margin-bottom 0.4em
+	
+	// Line pseudo-elements
+	&::before, &::after
+		content ''
+		border-top solid 3px color
 
 // Utility classes
 .a-reset
@@ -52,7 +50,7 @@ heading-line(color, bg-color)
 	
 .text-stylise
 	font-family 'Mr Dafoe', cursive
-	position relative
+	line-height 1
 
 .bg-image
 	background-color #888
@@ -70,18 +68,86 @@ heading-line(color, bg-color)
 	text-rendering auto
 	line-height 1
 
+.float-left
+	float left
+	margin-bottom gutter
+	margin-right gutter
+	
+.float-right
+	float right
+	margin-bottom gutter
+	margin-left gutter
+	
+p.lead
+	font-weight lighter
+	font-size 1.2em
+
+// Global styles
+:root, html
+	font-family sans-serif
+	font-size 12pt
+	
+	color color-default
+	
+	// Smooth scrolling to anchors
+	scroll-behavior smooth
+	
+	// Handheld overrides
+	@media(max-width: handheld-mw)
+		font-size 16pt
+		
+		// Reduce font size to fit
+		nav h1
+			font-size 20vw
+		
+		// Hide navbar links and expand main title
+		nav a
+			width 100%
+			text-align center
+
+			&:not(.mobile-keep)
+				display none
+				
+		// Reduce section padding
+		section
+			padding-top section-padding-handheld
+			padding-bottom section-padding-handheld
+			
+		// Hide blockquotes
+		blockquote
+			display none
+		
+		// Facilities	
+		ul.facilities > li
+			// Less padding
+			padding-top 1rem
+			padding-bottom 1rem
+
+			// Larger images
+			> div.bg-image
+				width 35%
+	
+a
+	text-decoration underline
+	color orange
+
+
 // Components
 .container
-	max-width 800px
+	max-width container-width
 	margin 0 auto
+	
+	overflow hidden
+	
+	// Vertical padding ensures that text is not ever against viewport edges
+	padding-left 1rem
+	padding-right 1rem
 	
 .panel
 	border-radius 0.3rem
 	box-shadow 0 0.2rem 0.5rem rgba(black, 0.3)
 	
 ul.facilities
-	gutter = 2rem
-
 	list-style none
 	margin none
 
@@ -109,9 +175,13 @@ ul.facilities
 			
 .contact-list
 	font-size 1.2em
+	
+	// white-space nowrap
 
 	> a
 		padding-h = 0.5rem
+		
+		display inline-block
 
 		text-decoration none
 		padding padding-h 0.8rem
@@ -133,7 +203,41 @@ ul.facilities
 	@extend .bg-image
 
 	background-attachment fixed
-	height 25rem
+	height 65vh
+	
+blockquote
+	col = lighten(color-default, 65%)
+	color col
+
+	padding 0 2.5rem
+	
+	// Provide reference for pseudo-elements
+	position relative
+
+	cite
+		display block
+		font-size 0.8em
+		text-align right
+		
+		margin-top 0.5rem
+		
+		&:before
+			content '- '
+		
+	
+	&::before, &::after
+		position absolute
+		font-size 4em
+		line-height 1
+		top 0
+		
+	&::before
+		content '\201C'
+		left 0
+		
+	&::after
+		content '\201D'
+		right 0
 
 // Body styles
 	
@@ -176,7 +280,8 @@ body > nav
 	left 0
 	right 0
 	
-	z-index 10
+	// Above leaflet map
+	z-index 5000
 	
 	padding 0.5rem
 	background-color white
@@ -240,7 +345,12 @@ main
 			color #aaa
 	
 section
-	padding 3rem 0
-
+	// Vertical padding ensures that text is not ever against viewport edges
+	padding-top section-padding
+	padding-bottom section-padding
+	
 	.heading-line
 		heading-line(#ccc, white)
+		
+div#map
+	height 25rem

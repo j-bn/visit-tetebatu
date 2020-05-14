@@ -4,8 +4,32 @@ title: Home
 ---
 
 <article id="advance">
-	<section>
-		<h2 class="heading-line"><span>Eat</span></h2>
+	<section id="about">
+		<h2 class="heading-line">Our Village</h2>
+		<p class="lead">
+			Located at the foot of Mt. Rinjani, Tetebatu is encircled with lush rice terraces and waterfalls. The village is wonderfully unspoiled by mass tourism but travellers are welcomed by friendly locals, abundant accomodation and delicious food.
+		</p>
+		<blockquote cite="https://homeiswhereyourbagis.com/en/tetebatu-lombok/">
+			Would you like to spend some quiet days amidst lush green nature, rice terraces and paddies as well as a breathtaking mountain panorama with a view at the Rinjani Volcano? Get to know the real Lombok and the life of the Sasak? Then you should definitely visit Tetebatu!
+			<cite>
+				Marcel, <a href="https://homeiswhereyourbagis.com">homeiswhereyourbagis.com</a>
+			</cite>
+		</blockquote>
+	</section>
+
+	<div id="map"></div>
+
+	<section id="see">
+		<h2 class="heading-line">See</h2>
+
+		{% include facilities_list.html category="see" %}
+	</section>
+
+	<div class="bg-window" style="background-image: url('https://images.unsplash.com/photo-1559628233-100c798642d4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80')">
+	</div>
+
+	<section id="eat">
+		<h2 class="heading-line">Eat</h2>
 
 		{% include facilities_list.html category="eat" %}
 	</section>
@@ -13,9 +37,18 @@ title: Home
 	<div class="bg-window" style="background-image: url('https://images.unsplash.com/photo-1559628233-100c798642d4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80')">
 	</div>
 
-	<section>
-		<h2 class="heading-line"><span>Stay</span></h2>
+	<section id="stay">
+		<h2 class="heading-line">Stay</h2>
 
 		{% include facilities_list.html category="stay" %}
+	</section>
+
+	<div class="bg-window" style="background-image: url('https://images.unsplash.com/photo-1559628233-100c798642d4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80')">
+	</div>
+
+	<section id="tour">
+		<h2 class="heading-line">Tour</h2>
+
+		{% include facilities_list.html category="tour" %}
 	</section>
 </article>
