@@ -754,7 +754,7 @@
 	],
 	"find":
 	{
-		"height": 32.0
+		"height": 54.0
 	},
 	"find_in_files":
 	{
@@ -817,7 +817,8 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/Liquid/Syntaxes/Liquid-HTML.sublime-syntax"
+							"syntax": "Packages/Liquid/Syntaxes/Liquid-HTML.sublime-syntax",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -846,6 +847,7 @@
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false,
 							"word_separators": "./\\()\"'-:,.;<>~!@#$%^&*|+=[]{}`~?"
 						},
 						"translation.x": 0.0,
@@ -875,7 +877,8 @@
 						"settings":
 						{
 							"auto_name": "",
-							"syntax": "Packages/HTML/HTML.sublime-syntax"
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -897,8 +900,8 @@
 						"selection":
 						[
 							[
-								2581,
-								2581
+								2152,
+								2152
 							]
 						],
 						"settings":
@@ -907,7 +910,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2982.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -960,7 +963,8 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/Liquid/Syntaxes/Liquid-HTML.sublime-syntax"
+							"syntax": "Packages/Liquid/Syntaxes/Liquid-HTML.sublime-syntax",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1064,7 +1068,7 @@
 		[
 			[
 				"",
-				"~/Developer/Web Projects/portfolio-2020b/Portfolio 2020b.sublime-project"
+				"~/Developer/Unity Projects 2020+/Project Entropy/Project Entropy.sublime-project"
 			]
 		],
 		"width": 380.0

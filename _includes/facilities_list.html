@@ -3,7 +3,7 @@
 <ul class="facilities">
 {% for facility in facs %}
 	<li class="{% cycle "", "flip" %}">
-		<div class="bg-image" style="background-image: url('{{ facility.img }}')"></div>
+		<div class="bg-image" style="background-image: url('{{ facility.img | relative_url }}')"></div>
 		<h3>{{ facility.name }}</h3>
 		<h4>{{ facility.type }}</h4>
 		{{ facility.content | markdownify }}
