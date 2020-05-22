@@ -14,13 +14,16 @@ section-padding-handheld = 1.5rem
 	padding 0
 	
 // Mixins
-square()
+min-height-by-width(pc)
 	// https://spin.atomicobject.com/2015/07/14/css-responsive-square/
-			
+	// Requires element to be empty
 	&::after
 		content ''
 		display block
-		padding-bottom 100%
+		padding-bottom pc
+
+square()
+	min-height-by-width(100%)
 
 heading-line(color, bg-color)
 	gap = 40px
@@ -77,6 +80,9 @@ heading-line(color, bg-color)
 	float right
 	margin-bottom gutter
 	margin-left gutter
+
+.center
+	text-align center
 	
 p.lead
 	font-weight lighter
@@ -152,10 +158,17 @@ ul.facilities
 	margin none
 
 	> li
-		// Ensure box is large enough to contain square image
-		min-height 160px
+		padding-v = 1.5rem
+
+		// Large enough to contain image
+		// (Border-box sizing means that height includes padding
+		mh = (container-width * 0.20) + (padding-v * 2)
+		min-height mh
 		
-		padding 2rem 0
+		// Stop image gutter from affecting next element
+		margin-bottom gutter
+		
+		padding padding-v 0
 
 		> div.bg-image
 			@extend .panel
@@ -251,8 +264,6 @@ header
 	background-color #666
 	padding 1rem
 	
-	background-image url('https://images.unsplash.com/photo-1506026410707-9ae71625e5a1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2173&q=80')
-	
 	min-height 100vh
 	
 	a.advance
@@ -273,6 +284,16 @@ header
 
 		&:hover
 			background-color rgba(black, 0.3)
+
+footer
+	padding 2rem
+
+	color #ccc
+	
+	border-top dashed 2px #ccc
+	//background-color #444
+	
+	//box-shadow inset 0 1rem 2rem rgba(black, 80%)
 
 body > nav
 	position fixed
@@ -351,6 +372,6 @@ section
 	
 	.heading-line
 		heading-line(#ccc, white)
-		
+
 div#map
 	height 25rem

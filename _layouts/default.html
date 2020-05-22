@@ -10,15 +10,18 @@ description: Located at the foot of Mt. Rinjani, Tetebatu is encircled with lush
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<!-- TODO -->
-	<meta property="og:title" content="" />
+<!-- 	<meta property="og:title" content="" />
 	<meta property="og:type" content="" />
 	<meta property="og:url" content="" />
-	<meta property="og:image" content="" />
+	<meta property="og:image" content="" /> -->
 
 	<title>{{ page.title }} - Tetebatu</title>
 
-	<!-- TODO -->
-	<link rel="apple-touch-icon" href="icon.png">
+	<!-- Favicons -->
+	<link rel="apple-touch-icon" sizes="180x180" href="img/favicon_io/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="img/favicon_io/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="img/favicon_io/favicon-16x16.png">
+	<link rel="manifest" href="img/favicon_io/site.webmanifest">
 
 	<!-- Google Fonts -->
 	<link href="https://fonts.googleapis.com/css2?family=Mr+Dafoe&display=swap" rel="stylesheet">
@@ -43,5 +46,7 @@ description: Located at the foot of Mt. Rinjani, Tetebatu is encircled with lush
 	<main>
 		{{ content }}
 	</main>
+
+	{% include footer.html %}
 </body>
 </html>
