@@ -2,12 +2,9 @@
 name: Tetebatu Indah Homestay
 type: Homestay
 category: stay
-address: 
-geo: 
-tel: 
-img: https://images.unsplash.com/photo-1523539693385-e5e891eb4465?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=670&q=80
+address: Jl. Monkey Forest, Tetebatu
+geo: -8.5383697,116.4195663
+tel: +62 822-3653-4942
+img: /img/bram-homestay/room-1.jpeg
 ---
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat.
+Highly recommended by many guides in Tetebatu, this cosy family-run homestay includes free breakfast and home-cooked Sasak food on-site. Your host, [Bram](#tour) is also a local guide and is always happy to help with directions, information recomendations and tours.

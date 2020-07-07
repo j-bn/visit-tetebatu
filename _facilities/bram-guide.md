@@ -2,9 +2,7 @@
 name: Bram
 type: Tour Guide
 category: tour
-address: 
-geo: 
 tel: +62 822-3653-4942
-img: 
-instagram: 
+img: /img/bram-homestay/bram-with-guests.jpeg
 ---
+The friendly host of [Indah Homestay](#stay), Bram often runs tours for his guests and any other visitors to Tetebatu.

@@ -1,4 +1,4 @@
-{% assign facs = site.facilities | where: "category", include.category %}
+{% assign facs = site.facilities | where: "category", include.category | sort: 'priority' %}
 
 <ul class="facilities">
 {% for facility in facs %}
@@ -36,6 +36,13 @@
 		<a href="https://www.instagram.com/{{ facility.instagram }}">
 			<i class="fab fa-instagram"></i>
 			{{ facility.instagram }}
+		</a>
+		{% endif %}
+
+		{% if facility.web %}
+		<a href="{{ facility.web }}">
+			<i class="fas fa-external-link-alt"></i>
+			Website
 		</a>
 		{% endif %}
 

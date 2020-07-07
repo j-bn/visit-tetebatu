@@ -23,7 +23,8 @@ $(document).ready(function() {
 	    zoom: 10,
 	    scrollWheelZoom: false,
 	    doubleClickZoom: false,
-	    zoomControl: false
+	    zoomControl: false,
+	    dragging: false
 	});
 
 	L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {

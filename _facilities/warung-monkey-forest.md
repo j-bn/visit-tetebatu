@@ -3,9 +3,11 @@ name: Warung Monkey Forest
 type: Restaurant
 category: eat
 address: Jl. Monkey Forest, Tetebatu
-geo: 
-tel: 
-img: https://images.unsplash.com/photo-1543392953-1916070302ec?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80
+geo: -8.539206, 116.417854
+tel: +62 819-9902-8098
+web: https://warung-monkey-forest.business.site/
+img: https://unsplash.com/photos/7gnbT2Xu9QY/download?force=true&w=640
+priority: -1
 ---
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
