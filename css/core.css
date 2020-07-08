@@ -15,7 +15,7 @@ body > nav > div a {
 .text-stylise,
 body > nav > div h1,
 main > article h2 {
-  font-family: 'Mr Dafoe', cursive;
+  font-family: 'Amatic SC', cursive;
   line-height: 1;
 }
 .bg-image,
@@ -55,7 +55,7 @@ p.lead {
 }
 :root,
 html {
-  font-family: sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 12pt;
   color: #444;
   scroll-behavior: smooth;
@@ -290,9 +290,21 @@ body > nav {
 body > nav > div {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   overflow: visible;
+}
+body > nav > div .l,
+body > nav > div .r {
+  min-width: 30%;
+  display: flex;
+  justify-content: space-evenly;
+}
+body > nav > div .l {
+  text-align: left;
+}
+body > nav > div .r {
+  text-align: right;
 }
 body > nav > div a {
   font-weight: bold;
@@ -311,7 +323,7 @@ body > nav.expand {
   position: absolute;
   top: 40vh;
   background-color: transparent;
-  font-size: 1.25em;
+  font-size: 125%;
   color: #fff;
   text-shadow: 0 0.2rem 0.5rem rgba(0,0,0,0.8);
   box-shadow: none;

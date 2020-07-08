@@ -18,6 +18,19 @@ section-padding-handheld = 1.5rem
 .autoprefix-test
 	overscroll-behavior contain
 
+// Vertical centre line
+// nav:after
+// 	content ''
+// 	width auto
+// 	background-color red
+// 	position fixed
+// 	left 49%
+// 	right 49%
+// 	top 0
+// 	bottom 0
+// 	z-index 9500
+// 	opacity 0.3
+
 // Reset
 // -----
 *
@@ -76,7 +89,7 @@ heading-line(color, bg-color)
 	color inherit
 	
 .text-stylise
-	font-family 'Mr Dafoe', cursive
+	font-family 'Amatic SC', cursive
 	line-height 1
 
 .bg-image
@@ -116,7 +129,7 @@ p.lead
 // -------------
 
 :root, html
-	font-family sans-serif
+	font-family 'Roboto', sans-serif
 	font-size 12pt
 	
 	color color-default
@@ -430,10 +443,21 @@ body > nav
 
 		display flex
 		flex-direction row
-		justify-content space-between
+		justify-content center
 		align-items center
 
 		overflow visible
+
+		.l, .r
+			min-width 30%
+			display flex
+			justify-content space-evenly
+
+		.l
+			text-align left
+
+		.r
+			text-align right
 
 		a
 			@extend .a-reset
@@ -458,7 +482,7 @@ body > nav.expand
 	top 40vh
 	background-color transparent
 	
-	font-size 1.25em
+	font-size 125%
 	
 	color white
 	text-shadow 0 0.2rem 0.5rem rgba(black, 0.8)
