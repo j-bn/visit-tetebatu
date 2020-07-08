@@ -12,8 +12,24 @@ const platform = {
 };
 console.log('Platform checks', platform);
 
+var appLoaded = false;
+window.onload = function() {
+	appLoaded = true;
+	onAppLoaded();
+};
+
+function onAppLoaded() {
+	$('#loading-overlay').fadeOut();
+}
+
 $(document).ready(function() {
 	const $navbar = $('body > nav');
+
+	// Loading overlay
+	$('#loading-overlay').addClass('show');
+	if(appLoaded) {
+		onAppLoaded();
+	}
 
 	// Polyfill geo: URIs
 	$('a[href^="geo:"]').each(function() {
