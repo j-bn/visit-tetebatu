@@ -218,7 +218,7 @@ blockquote::after {
   content: '';
 }
 .loader:after {
-  background: #2ecc71;
+  background: #27ae60;
   width: 75%;
   height: 75%;
   border-radius: 50%;
@@ -237,7 +237,7 @@ blockquote::after {
   right: 0;
   bottom: 0;
   z-index: 9000;
-  background-color: #2ecc71;
+  background-color: #27ae60;
   display: none;
   justify-content: center;
   align-items: center;
