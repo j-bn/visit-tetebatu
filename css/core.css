@@ -1,3 +1,7 @@
+.autoprefix-test {
+  -ms-scroll-chaining: none;
+      overscroll-behavior: contain;
+}
 * {
   box-sizing: border-box;
   margin: 0;
