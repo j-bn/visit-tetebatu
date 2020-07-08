@@ -123,7 +123,7 @@ ul.facilities {
   margin: none;
 }
 ul.facilities > li {
-  min-height: 203px;
+  min-height: calc((1000px * 0.2) + (1.5rem * 2));
   margin-bottom: 1rem;
   padding: 1.5rem 0;
 }

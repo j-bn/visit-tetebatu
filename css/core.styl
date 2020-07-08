@@ -190,12 +190,12 @@ ul.facilities
 	margin none
 
 	> li
+		float-image-width = 20%
 		padding-v = 1.5rem
 
 		// Large enough to contain image
-		// (Border-box sizing means that height includes padding
-		mh = (container-width * 0.20) + (padding-v * 2)
-		min-height mh
+		// (border-box sizing means that height includes padding)
+		min-height "calc((%s * 0.2) + (%s * 2))" % (container-width padding-v)
 		
 		// Stop image gutter from affecting next element
 		margin-bottom gutter
@@ -208,7 +208,7 @@ ul.facilities
 			square()
 
 			float right
-			width 20%
+			width float-image-width
 			margin-left gutter
 			margin-bottom gutter
 			
