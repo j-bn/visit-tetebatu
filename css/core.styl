@@ -1,4 +1,8 @@
+brand-orange = #f39c12
+
 color-default = #444
+
+std-transition = 0.3s ease
 
 container-width = 800px
 handheld-mw = 500px
@@ -8,12 +12,15 @@ section-padding = 3rem
 section-padding-handheld = 1.5rem
 
 // Reset
+// -----
 *
 	box-sizing border-box
 	margin 0
 	padding 0
 	
 // Mixins
+// ------
+
 min-height-by-width(pc)
 	// https://spin.atomicobject.com/2015/07/14/css-responsive-square/
 	// Requires element to be empty
@@ -42,11 +49,21 @@ heading-line(color, bg-color)
 	margin-bottom 0.4em
 	
 	// Line pseudo-elements
-	&::before, &::after
+	&:before, &:after
 		content ''
 		border-top solid 3px color
 
+	// Remove lines on handheld devices
+	@media(max-width: handheld-mw)
+		display block
+
+		&:before, &:after
+			display none
+
+
 // Utility classes
+// ---------------
+
 .a-reset
 	text-decoration none
 	color inherit
@@ -89,6 +106,8 @@ p.lead
 	font-size 1.2em
 
 // Global styles
+// -------------
+
 :root, html
 	font-family sans-serif
 	font-size 12pt
@@ -135,10 +154,16 @@ p.lead
 	
 a
 	text-decoration underline
-	color orange
+	color brand-orange
 
+// Offset scroll to anchor to account for navbar
+scroll-offset = 78px
+html
+	scroll-padding-top scroll-offset
 
 // Components
+// ----------
+
 .container
 	max-width container-width
 	margin 0 auto
@@ -253,6 +278,7 @@ blockquote
 		right 0
 
 // Body styles
+// -----------
 	
 header
 	@extend .bg-image
@@ -295,6 +321,7 @@ footer
 	
 	//box-shadow inset 0 1rem 2rem rgba(black, 80%)
 
+// Shown when over page
 body > nav
 	position fixed
 	top 0
@@ -309,11 +336,11 @@ body > nav
 	
 	font-size 1em
 	
-	color rgb(156,160,88)
-	text-shadow 0 -1px 0 rgba(black, 0.5)
+	color brand-orange
+	text-shadow none // 0 -1px 0.1rem rgba(black, 0.2)
 	box-shadow 0 0 0.5rem rgba(black, 0.3)
 	
-	transition all 0.3s ease
+	transition all std-transition
 	transition-property background-color, color, font-size, text-shadow, box-shadow
 
 	> div
@@ -324,15 +351,25 @@ body > nav
 		justify-content space-between
 		align-items center
 
+		overflow visible
+
 		a
 			@extend .a-reset
 			
 			font-weight bold
+			border-bottom solid 3px transparent
+
+			transition std-transition
+			transition-property transform, border-color
+			&:hover
+				transform scale(1.1)
+				border-color brand-orange
 			
 		h1
 			@extend .text-stylise
 			font-size 4em
-			
+
+// Shown when over header
 body > nav.expand
 	position absolute
 
@@ -342,8 +379,11 @@ body > nav.expand
 	font-size 1.25em
 	
 	color white
-	text-shadow 0 0.2rem 0.5rem rgba(black, 0.5)
+	text-shadow 0 0.2rem 0.5rem rgba(black, 0.8)
 	box-shadow none
+
+	> div a:hover
+		border-color white
 			
 main
 	> article
