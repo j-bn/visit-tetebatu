@@ -1,15 +1,14 @@
-{% assign facs = site.facilities | where: "category", include.category | sort: 'priority' %}
+{% assign facs = ((site.facilities | where: "category", include.category) | sort: "priority" | reverse)  %}
 
 <ul class="facilities">
 {% for facility in facs %}
-	<li class="{% cycle "", "flip" %}">
+	<li class="{% cycle '', 'flip' %}" data-priority="{{ facility.priority }}">
 		<div class="bg-image" style="background-image: url('{{ facility.img | relative_url }}')"></div>
 		<h3>{{ facility.name }}</h3>
 		<h4>{{ facility.type }}</h4>
 		{{ facility.content | markdownify }}
 
 		<div class="contact-list">
-
 
 		{% if facility.category == 'see' %}
 		<a href="#tour">
