@@ -1,5 +1,7 @@
 // Platform checking
 const platform = {
+	// http://man.hubwiz.com/docset/HTTP.docset/Contents/Resources/Documents/developer.mozilla.org/en-US/docs/Web/HTTP/Browser_detection_using_the_user_agent.html#Mobile_Tablet_or_Desktop
+	mobile: navigator.userAgent.indexOf("Mobi") !== -1,
 	os: {
 		apple: navigator.userAgent.indexOf("Apple") !== -1,
 		android: navigator.userAgent.indexOf("Android") !== -1,
@@ -7,7 +9,7 @@ const platform = {
 	},
 	browser: {
 		chrome: navigator.userAgent.indexOf("Chrome") !== -1,
-		firefox: navigator.userAgent.indexOf("Chrome") !== -1
+		firefox: navigator.userAgent.indexOf("Firefox") !== -1
 	}
 };
 console.log('Platform checks', platform);
@@ -37,23 +39,28 @@ $(document).ready(function() {
 
 		// Select prefix
 		// based on https://stackoverflow.com/a/32422880/690007
-		let platformPrefix;
-		if(platform.os.apple) {
-			// ?ll= sets view centre, ?q= adds a pin
-			platformPrefix = 'https://maps.apple.com/?q=';
-		} else if(platform.os.android) {
-			platformPrefix = 'geo:';
-		} else if(platform.os.windowsPhone) {
-			platformPrefix = 'maps:';
-		} else {
-			platformPrefix = 'https://maps.google.com/?q=';
+
+		// Default for desktop OSs
+		let platformPrefix = 'https://maps.google.com/?q=';
+
+		if(platform.mobile) {
+			if(platform.os.apple) {
+				// ?ll= sets view centre, ?q= adds a pin
+				platformPrefix = 'https://maps.apple.com/?q=';
+			} else if(platform.os.android) {
+				platformPrefix = 'geo:';
+			} else if(platform.os.windowsPhone) {
+				platformPrefix = 'maps:';
+			}
 		}
 
 		// Remove URL prefix and strip whitespace
 		const latlon = $this.attr('href').substring(4).replace(/\s/g, '');
 
-		// Reset URI
-		$this.attr('href', platformPrefix + latlon);
+		// Reset URI and set to open in a new tab
+		$this
+		.attr('href', platformPrefix + latlon)
+		.attr('target', '_blank');
 	});
 
 	$(window).scroll(function() {
