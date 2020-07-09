@@ -2,10 +2,12 @@ brand-orange = #f39c12
 brand-green = #27ae60
 
 color-default = #444
+color-muted = #ccc
 
 std-transition = 0.3s ease
 
 container-width = 1000px
+container-width-slim = 700px
 handheld-mw = 500px
 gutter = 1rem
 
@@ -125,6 +127,9 @@ p.lead
 	font-weight lighter
 	font-size 1.2em
 
+.text-center
+	text-align center
+
 // Global styles
 // -------------
 
@@ -176,6 +181,10 @@ a
 	text-decoration underline
 	color brand-orange
 
+hr
+	margin 3rem 0
+	border solid 1px color-muted
+
 // Offset scroll to anchor to account for navbar
 scroll-offset = 78px
 html
@@ -193,6 +202,9 @@ html
 	// Vertical padding ensures that text is not ever against viewport edges
 	padding-left 1rem
 	padding-right 1rem
+
+	&.slim
+		max-width container-width-slim
 	
 .panel
 	border-radius 0.3rem
@@ -264,8 +276,7 @@ ul.facilities
 	height 50vh
 	
 blockquote
-	col = lighten(color-default, 65%)
-	color col
+	color color-muted
 
 	padding 0 2.5rem
 	
@@ -296,6 +307,28 @@ blockquote
 	&::after
 		content '\201D'
 		right 0
+
+.spread-row
+	display flex
+	flex-direction row
+	justify-content center
+	flex-wrap wrap
+
+	// Icon grid use
+	> *
+		max-width 12rem
+		margin-top 2rem
+		padding 0 1rem
+
+		i
+			display block
+			font-size 4rem
+			text-align center
+			color color-muted
+
+		p
+			text-align center
+
 
 // Spinner
 // https://projects.lukehaas.me/css-loaders/
@@ -496,6 +529,9 @@ main
 		> section
 			@extend .container
 
+		> section.slim
+			@extend .container.slim
+
 		p
 			padding 1rem 0
 		
@@ -517,7 +553,7 @@ section
 	padding-bottom section-padding
 	
 	.heading-line
-		heading-line(#ccc, white)
+		heading-line(color-muted, white)
 
 div#map
 	height 25rem

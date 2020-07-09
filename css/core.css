@@ -53,6 +53,9 @@ p.lead {
   font-weight: lighter;
   font-size: 1.2em;
 }
+.text-center {
+  text-align: center;
+}
 :root,
 html {
   font-family: 'Roboto', sans-serif;
@@ -101,6 +104,10 @@ a {
   text-decoration: underline;
   color: #f39c12;
 }
+hr {
+  margin: 3rem 0;
+  border: solid 1px #ccc;
+}
 html {
   scroll-padding-top: 78px;
 }
@@ -112,6 +119,11 @@ main > article > section {
   overflow: hidden;
   padding-left: 1rem;
   padding-right: 1rem;
+}
+.container.slim,
+body > nav > div.slim,
+main > article > section.slim {
+  max-width: 700px;
 }
 .panel,
 ul.facilities > li > div.bg-image {
@@ -165,7 +177,7 @@ ul.facilities > li.flip > div.bg-image {
   height: 50vh;
 }
 blockquote {
-  color: #bebebe;
+  color: #ccc;
   padding: 0 2.5rem;
   position: relative;
 }
@@ -192,6 +204,26 @@ blockquote::before {
 blockquote::after {
   content: '\201D';
   right: 0;
+}
+.spread-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.spread-row > * {
+  max-width: 12rem;
+  margin-top: 2rem;
+  padding: 0 1rem;
+}
+.spread-row > * i {
+  display: block;
+  font-size: 4rem;
+  text-align: center;
+  color: #ccc;
+}
+.spread-row > * p {
+  text-align: center;
 }
 .loader {
   font-size: 10px;
